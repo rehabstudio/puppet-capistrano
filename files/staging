@@ -1,0 +1,11 @@
+set :application, '<projectname>'
+set :user, '<username>'
+set :repository, '<repo>'
+set :branch, '<branch>'
+set :deploy_to, '/var/www/<directory>'
+set :clear_cache, true
+set :use_composer, true
+set :copy_vendors, false
+set :update_vendors, false
+set :keep_releases, 3
+server '<server_ip>', :web, :app

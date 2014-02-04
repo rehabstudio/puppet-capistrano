@@ -1,0 +1,7 @@
+set :stages, %w(dev staging)
+set :stage_dir, 'config/deploy'
+set :default_stage, 'staging'
+
+require 'rubygems'
+require 'capistrano/ext/multistage'
+require 'app-deployer'
