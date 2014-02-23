@@ -1,7 +1,7 @@
 set :application, '<%= @application %>'
 set :user, '<%= @server_user %>'
 set :repository, '<%= @repo %>'
-set :branch, '<%= @branch_staging %>'
+set :branch, '<%= @branch_live %>'
 set :deploy_to, '<%= @directory %>'
 set :clear_cache, true
 set :use_composer, true

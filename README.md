@@ -11,7 +11,7 @@ Once the vagrant up process is complete the following files will be created:
     - vagrant/config/deploy/dev
     - vagrant/config/deploy/staging
     
-At the very least you will need to update the `vagrant/config/deploy/dev` file with the appropriate settings for the server. You will also need to ensure the server has been configured to allow the Capistrano script can connect and execute the commands.
+The settings for these files are set in the class parameters.
 
 ### Run deploy
 

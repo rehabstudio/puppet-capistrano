@@ -1,19 +1,32 @@
-# Self-instantiating simple class that creates the core capistrano configuration used as part of the quick-deploy process
-class capistrano {
+# simple class that installs the gem dependecies and creates the core capistrano configuration used as part of the quick-deploy process
+class capistrano (  $application,
+                    $repo,
+                    $branch_dev,
+                    $branch_staging,
+                    $branch_live,
+                    $directory,
+                    $server_user,
+                    $server_ip) {
 
-    package { 'capistrano':
-        ensure   => '2.15.5',
-        provider => 'gem',
+    if ! defined(Package['capistrano']) { 
+        package { 'capistrano':
+            ensure   => '2.15.5',
+            provider => 'gem',
+        }
     }
 
-    package { 'capistrano-ext':
-        ensure   => '1.2.1',
-        provider => 'gem',
+    if ! defined(Package['capistrano-ext']) { 
+        package { 'capistrano-ext':
+            ensure   => '1.2.1',
+            provider => 'gem',
+        }
     }
 
-    package { 'app-deployer':
-        ensure   => '0.0.3',
-        provider => 'gem',
+    if ! defined(Package['app-deployer']) { 
+        package { 'app-deployer':
+            ensure   => '0.0.3',
+            provider => 'gem',
+        }
     }
 
     file { ['/vagrant/config/',
@@ -49,8 +62,13 @@ class capistrano {
         source => 'puppet:///modules/capistrano/dev',
         ensure => present,
     }
-}
 
-class { 'capistrano':
-    
+    file { 'Creating capistrano live config':
+        name   => '/vagrant/config/deploy/live',
+        mode   => 0640,
+        owner  => 'vagrant', 
+        group  => 'vagrant',
+        source => 'puppet:///modules/capistrano/live',
+        ensure => present,
+    }
 }
