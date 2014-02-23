@@ -50,7 +50,7 @@ class capistrano (  $application,
         mode    => 0640,
         owner   => 'vagrant', 
         group   => 'vagrant',
-        content => template('puppet:///modules/capistrano/dev.erb'),
+        content => template('/vagrant/puppet/modules/capistrano/files/dev.erb'),
         ensure  => present,
     }
 
@@ -59,7 +59,7 @@ class capistrano (  $application,
         mode   => 0640,
         owner  => 'vagrant', 
         group  => 'vagrant',
-        content => template('puppet:///modules/capistrano/staging.erb'),
+        content => template('/vagrant/puppet/modules/capistrano/files/staging.erb'),
         ensure => present,
     }
 
@@ -68,7 +68,7 @@ class capistrano (  $application,
         mode   => 0640,
         owner  => 'vagrant', 
         group  => 'vagrant',
-        content => template('puppet:///modules/capistrano/live.erb'),
+        content => template('/vagrant/puppet/modules/capistrano/files/live.erb'),
         ensure => present,
     }
 }
