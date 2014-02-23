@@ -68,7 +68,7 @@ class capistrano (  $application,
         mode   => 0640,
         owner  => 'vagrant', 
         group  => 'vagrant',
-        source => content => template('puppet:///modules/capistrano/live.erb'),
+        content => template('puppet:///modules/capistrano/live.erb'),
         ensure => present,
     }
 }
