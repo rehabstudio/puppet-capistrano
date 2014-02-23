@@ -1,7 +1,7 @@
-Puppet Capistrano Submodule
+Puppet Capistrano Module
 ===========================
 
-This repo is a submodule for vagrant that installs the relevant gems to allow capistrano to run and creates some template files to give a slight head start.
+This repo is a module for vagrant that installs the relevant gems to allow capistrano to run and creates some template files to give a slight head start.
 
 ### Configure
 
