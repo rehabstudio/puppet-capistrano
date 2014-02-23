@@ -46,29 +46,29 @@ class capistrano (  $application,
     }
 
     file { 'Creating capistrano dev config':
-        name   => '/vagrant/config/deploy/dev',
-        mode   => 0640,
-        owner  => 'vagrant', 
-        group  => 'vagrant',
-        source => 'puppet:///modules/capistrano/dev',
-        ensure => present,
+        path    => '/vagrant/config/deploy/dev',
+        mode    => 0640,
+        owner   => 'vagrant', 
+        group   => 'vagrant',
+        content => template('puppet:///modules/capistrano/dev.erb'),
+        ensure  => present,
     }
 
     file { 'Creating capistrano staging config':
-        name   => '/vagrant/config/deploy/staging',
+        path   => '/vagrant/config/deploy/staging',
         mode   => 0640,
         owner  => 'vagrant', 
         group  => 'vagrant',
-        source => 'puppet:///modules/capistrano/dev',
+        content => template('puppet:///modules/capistrano/staging.erb'),
         ensure => present,
     }
 
     file { 'Creating capistrano live config':
-        name   => '/vagrant/config/deploy/live',
+        path   => '/vagrant/config/deploy/live',
         mode   => 0640,
         owner  => 'vagrant', 
         group  => 'vagrant',
-        source => 'puppet:///modules/capistrano/live',
+        source => content => template('puppet:///modules/capistrano/live.erb'),
         ensure => present,
     }
 }
